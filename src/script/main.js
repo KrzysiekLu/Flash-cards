@@ -5,9 +5,18 @@ translate.from ="pl"
 
 const trans  = async(from)=>{
 let to = await translate(`${from}`, 'es')
-    document.body.innerHTML = `${from} po hiszpańsku znaczy: ${to}`
     
 }
 
 
+
 trans('Co tam słychać')
+
+const card = document.querySelector('.card')
+const cardSubmint = document.querySelector('#cardSubmit')
+document.addEventListener('keypress',(e)=>{
+    e.key === 'Enter'? card.classList.toggle('card--flip'): null;
+})
+cardSubmint.addEventListener('click',()=>{
+    card.classList.toggle('card--flip')
+})
