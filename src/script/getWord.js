@@ -3,8 +3,10 @@ const drawNumOfWord =(arrLength)=>{const num = Math.floor(Math.random() * arrLen
 return num
 }
 const displayWord =(word)=>{
-const wordEng = document.querySelector('.card__front p')
-wordEng.innerText = word
+    const wordEng = document.querySelector('.card__front p')
+    const wordEngBack = document.querySelector('.orgin')
+    wordEng.innerText = word
+    wordEngBack.innerText = word
 }
 
 const getRandomWord= ()=>{

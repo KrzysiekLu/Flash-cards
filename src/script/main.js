@@ -10,10 +10,8 @@ return trans
 }
 
 const displayTranslation =(translation)=>{
-const cardTranslation = document.querySelector('.card__back p')
-
+const cardTranslation = document.querySelector('.card__back .translate')
 cardTranslation.innerText = translation
-
 }
 
 
