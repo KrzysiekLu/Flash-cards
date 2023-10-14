@@ -16,10 +16,22 @@ body{
 }
 
 .card{
-    height: 200px;
-    width: 200px;
+    height: 400px;
+    width: 300px;
     position: relative;
-    
+    &__audio{
+        color: #fff;
+        position: absolute;
+        z-index: 1;
+        bottom: 5%;
+        right: 5%;
+        transition: 0.2s ease;
+        cursor: pointer;
+        &:hover{
+            color: #1c1b1b;
+            transform: scale(1.2);
+        }
+    }
     &__side{
         display: grid;
         place-items: center;
@@ -51,7 +63,9 @@ body{
         }
     }
     &__front{
+        backface-visibility: hidden;
         p{
+            transform: rotate(0);
             transition: 0.5s ease all;
             opacity: 1;
             transform: scale(1);
