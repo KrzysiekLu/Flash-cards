@@ -21,8 +21,8 @@ body{
     position: relative;
     &__audio{
         color: #fff;
-        position: absolute;
-        z-index: 1;
+        // position: absolute;
+        z-index: 10;
         bottom: 5%;
         right: 5%;
         transition: 0.2s ease;
