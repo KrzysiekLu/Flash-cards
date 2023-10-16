@@ -15,19 +15,29 @@ const displayTranslation =(translation)=>{
 const cardTranslation = document.querySelector('.card__back .translate')
 cardTranslation.innerText = translation
 }
+const controler = {
+    currentWordOrigin:'',
+    currentWordTranslate:'',
+}
 
-
-const init = () =>{
-    uiInit()
+const getNewWord = ()=>{
     getRandomWord().then(resp=>{
-        // getMp3(resp)
+        controler.currentWordOrigin= resp
         return trans(resp)
     }).then((resp)=>{
+        controler.currentWordTranslate = resp
+        console.log(controler);
         displayTranslation(resp)
     })
+}
+const nextBTN = document.querySelector('.card__button--next').addEventListener('click',getNewWord)
+
+const init = () =>{
+    speak()
+    uiInit()
+    getNewWord()
+    
 }
 init()
 
 
-
-speak()
