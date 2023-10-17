@@ -19,7 +19,7 @@ body{
     height: 400px;
     width: 300px;
     position: relative;
-    animation: showCard 0.4s linear;
+    animation: showCard 0.3s linear;
 
     &__audio{
         color: #fff;
@@ -71,6 +71,22 @@ body{
             opacity: 1;
             transform: scale(1);
         }
+        .input-container{
+            display: flex;
+            gap: 10px;
+
+        }
+        .letter-input{
+            display: inline;
+            max-width: 20px;
+            border: none;
+            border-bottom: 2px solid #fff;
+            background: none;
+            outline:none;
+            text-align: center;
+            font-size: 18px;
+            color: #fff;
+        }
     }
     &__btn-container{
         width: 100%;
@@ -94,7 +110,7 @@ body{
         }
     }
     &__next-animation{
-        animation: nextCardAnimation 0.5s linear;
+        animation: nextCardAnimation 0.4s ease-out;
     }
 }
 

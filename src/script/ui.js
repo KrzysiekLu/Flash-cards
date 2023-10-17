@@ -1,6 +1,6 @@
 import { getNewWord } from "./main.js"
-
-export const uiInit=()=>{
+import { controler } from "./main.js"
+export const flipCardAnimtion=()=>{
     const card = document.querySelector('.card')
     const cardSubmint = document.querySelector('#cardSubmit')
     document.addEventListener('keypress',(e)=>{
@@ -41,12 +41,23 @@ export const generateCard = (wordOrigin,translate)=>{
     const backTranslate = document.createElement('p')
     backTranslate.textContent = translate
     cardBack.insertAdjacentElement('beforeend',backTranslate)
-    uiInit()
+    // inputs
+    const inputContainer = document.createElement('div')
+    inputContainer.classList.add('input-container')
+    cardFront.insertAdjacentElement('beforeend',(inputContainer))
+    controler.currentWordTranslate.split('').forEach(()=>{
+        const letterInput = document.createElement('input')       
+        letterInput.classList.add('letter-input')
+        letterInput.setAttribute('maxlength', '1');
+        inputContainer.insertAdjacentElement('beforeend',letterInput)
+    })
+    
+    flipCardAnimtion()
     return card
 }
 nextBtn.addEventListener('click',()=>{
     nextCardAnimation(generateCard())
     setTimeout(()=>{
         getNewWord()
-    },400)
+    },100)
 }  )

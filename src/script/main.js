@@ -12,7 +12,7 @@ return trans
 }
 
 
-const controler = {
+ export const controler = {
     currentWordOrigin:'',
     currentWordTranslate:'',
     
