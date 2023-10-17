@@ -17,6 +17,7 @@ body {
   height: 400px;
   width: 300px;
   position: relative;
+  animation: showCard 0.3s linear;
 }
 .card__audio {
   color: #fff;
@@ -69,24 +70,74 @@ body {
   opacity: 1;
   transform: scale(1);
 }
+.card__front .input-container {
+  display: flex;
+  gap: 10px;
+}
+.card__front .letter-input {
+  display: inline;
+  max-width: 20px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: none;
+  outline: none;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+.card__btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
 .card__button {
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 2px 25px;
   background: #efbc4f;
   border: 2px solid #fff;
   border-radius: 10px;
+  font-size: 20px;
   color: #fff;
   transition: 0.3s ease;
+  cursor: pointer;
 }
 .card__button:hover {
   background: #f15e47;
-  transform: translate(-50%, -2px);
+  transform: translateY(-2px);
   box-shadow: 0 2px 10px -2px #1c1b1b;
 }
+.card__next-animation {
+  animation: nextCardAnimation 0.4s ease-out;
+}
 
+@keyframes nextCardAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+}
+@keyframes showCard {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 .card--flip .card__front {
   transform: rotateY(180deg);
   backface-visibility: hidden;

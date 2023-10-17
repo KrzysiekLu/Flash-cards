@@ -1,6 +1,6 @@
 
 import translate from "../../node_modules/translate/index.min.js"
-import uiInit from "./ui.js"
+import * as Ui from "./ui.js"
 import getRandomWord from "./getWord.js"
 import speak from "./speak.js"
 
@@ -11,23 +11,36 @@ let trans = await translate(`${from}`, 'pol')
 return trans
 }
 
-const displayTranslation =(translation)=>{
-const cardTranslation = document.querySelector('.card__back .translate')
-cardTranslation.innerText = translation
+
+ export const controler = {
+    currentWordOrigin:'',
+    currentWordTranslate:'',
+    
 }
+
+export const getNewWord = () => {
+    getRandomWord()
+      .then((resp) => {
+        controler.currentWordOrigin = resp;
+        return trans(resp);
+      })
+      .then((resp) => {
+        controler.currentWordTranslate = resp;
+        console.log(controler.currentWordTranslate);
+        Ui.generateCard(controler.currentWordOrigin, controler.currentWordTranslate);
+      })
+      .catch((error) => {
+        console.error("Wystąpił błąd:", error);
+      });
+  };
+
 
 
 const init = () =>{
-    uiInit()
-    getRandomWord().then(resp=>{
-        // getMp3(resp)
-        return trans(resp)
-    }).then((resp)=>{
-        displayTranslation(resp)
-    })
+    speak()
+    getNewWord()
+    
 }
 init()
 
 
-
-speak()
