@@ -22,10 +22,12 @@ body{
     animation: showCard 0.3s linear;
 
     &__audio{
+        position: absolute;
         color: #fff;
         z-index: 10;
         bottom: 5%;
-        right: 5%;
+        left: 50%;
+        transform: translateX(-50%);
         transition: 0.2s ease;
         cursor: pointer;
         &:hover{

@@ -12,7 +12,7 @@ return trans
 }
 
 
- export const controler = {
+ export const controller = {
     currentWordOrigin:'',
     currentWordTranslate:'',
     
@@ -21,25 +21,21 @@ return trans
 export const getNewWord = () => {
     getRandomWord()
       .then((resp) => {
-        controler.currentWordOrigin = resp;
+        controller.currentWordOrigin = resp;
         return trans(resp);
       })
       .then((resp) => {
-        controler.currentWordTranslate = resp;
-        console.log(controler.currentWordTranslate);
-        Ui.generateCard(controler.currentWordOrigin, controler.currentWordTranslate);
-      })
-      .catch((error) => {
-        console.error("Wystąpił błąd:", error);
-      });
-  };
+        controller.currentWordTranslate = resp;
+        Ui.generateCard();
+        speak(Ui.generateCard().audioBtn) 
+    })
+   
+};
 
 
 
 const init = () =>{
-    speak()
     getNewWord()
-    
 }
 init()
 

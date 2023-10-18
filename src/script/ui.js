@@ -1,5 +1,5 @@
 import { getNewWord } from "./main.js"
-import { controler } from "./main.js"
+import { controller } from "./main.js"
 export const flipCardAnimtion=()=>{
     const card = document.querySelector('.card')
     const cardSubmint = document.querySelector('#cardSubmit')
@@ -14,7 +14,7 @@ const nextBtn = document.querySelector('#next')
 export const nextCardAnimation = (card)=>{
     card.classList.add('card__next-animation')
 }
-export const generateCard = (wordOrigin,translate)=>{
+export const generateCard = ()=>{
     // card
     const cardContainer = document.querySelector('.card__container')
     cardContainer.textContent=''
@@ -23,7 +23,7 @@ export const generateCard = (wordOrigin,translate)=>{
     // card-front
     const cardFront = document.createElement('div')
     const frontOrigin = document.createElement('p')
-    frontOrigin.textContent=wordOrigin
+    frontOrigin.textContent=controller.currentWordOrigin
     frontOrigin.classList.add('origin')
     cardFront.insertAdjacentElement('afterbegin',frontOrigin)
     card.insertAdjacentElement('afterbegin', cardFront)
@@ -34,22 +34,30 @@ export const generateCard = (wordOrigin,translate)=>{
     cardBack.classList.add('card__side', 'card__back')
     card.insertAdjacentElement('afterbegin',cardBack)
     const backOrigin = document.createElement('p')
-    backOrigin.textContent=wordOrigin
+    backOrigin.textContent=controller.currentWordOrigin
     backOrigin.classList.add('origin')
     cardBack.insertAdjacentElement('afterbegin',backOrigin)
     // card-back translate
     const backTranslate = document.createElement('p')
-    backTranslate.textContent = translate
+    backTranslate.textContent = controller.currentWordTranslate
     cardBack.insertAdjacentElement('beforeend',backTranslate)
     // inputs
     const input = document.createElement('input')
     input.classList.add('card__input')
     cardFront.insertAdjacentElement('beforeend',input)
-    flipCardAnimtion()
-    return card
+    // audio 
+        const audioBtn = document.createElement('i')
+        audioBtn.classList.add('material-symbols-outlined', 'card__audio')
+        audioBtn.textContent='record_voice_over'
+        card.insertAdjacentElement('afterbegin',audioBtn)
+        flipCardAnimtion()
+    return {card,audioBtn}
+
+   
+   
 }
 nextBtn.addEventListener('click',()=>{
-    nextCardAnimation(generateCard())
+    nextCardAnimation(generateCard().card)
     setTimeout(()=>{
         getNewWord()
     },100)
