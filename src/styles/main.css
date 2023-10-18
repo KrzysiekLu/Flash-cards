@@ -20,10 +20,11 @@ body {
   animation: showCard 0.3s linear;
 }
 .card__audio {
+  position: absolute;
   color: #fff;
   z-index: 10;
   bottom: 5%;
-  right: 5%;
+  right: 7%;
   transition: 0.2s ease;
   cursor: pointer;
 }

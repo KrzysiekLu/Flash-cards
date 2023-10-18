@@ -22,10 +22,11 @@ body{
     animation: showCard 0.3s linear;
 
     &__audio{
+        position: absolute;
         color: #fff;
         z-index: 10;
         bottom: 5%;
-        right: 5%;
+        right: 7%;
         transition: 0.2s ease;
         cursor: pointer;
         &:hover{
@@ -64,6 +65,7 @@ body{
         }
     }
     &__front{
+       
         backface-visibility: hidden;
         p{
             transform: rotate(0);
