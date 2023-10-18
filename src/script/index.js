@@ -1,5 +1,5 @@
 
-import translate from "../../node_modules/translate/index.min.js"
+import translate from "./translate/index.min.js"
 import * as Ui from "./ui.js"
 import getRandomWord from "./getWord.js"
 
