@@ -11,11 +11,9 @@ let trans = await translate(`${from}`, 'pol')
 return trans
 }
 
-
  export const controller = {
     currentWordOrigin:'',
-    currentWordTranslate:'',
-    
+    currentWordTranslate:'',    
 }
 
 export const getNewWord = () => {
@@ -27,12 +25,9 @@ export const getNewWord = () => {
       .then((resp) => {
         controller.currentWordTranslate = resp;
         Ui.generateCard();
-        speak(Ui.generateCard().audioBtn) 
     })
    
 };
-
-
 
 const init = () =>{
     getNewWord()

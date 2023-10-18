@@ -1,5 +1,6 @@
 import { getNewWord } from "./main.js"
 import { controller } from "./main.js"
+import speak from "./speak.js"
 export const flipCardAnimtion=()=>{
     const card = document.querySelector('.card')
     const cardSubmint = document.querySelector('#cardSubmit')
@@ -46,12 +47,23 @@ export const generateCard = ()=>{
     input.classList.add('card__input')
     cardFront.insertAdjacentElement('beforeend',input)
     // audio 
-        const audioBtn = document.createElement('i')
-        audioBtn.classList.add('material-symbols-outlined', 'card__audio')
-        audioBtn.textContent='record_voice_over'
-        card.insertAdjacentElement('afterbegin',audioBtn)
+    
+        const audioBtnFront = document.createElement('i')
+        audioBtnFront.classList.add('material-symbols-outlined', 'card__audio')
+        audioBtnFront.textContent='record_voice_over'
+        cardFront.insertAdjacentElement('afterbegin',audioBtnFront)
+        const audioBtnBack = document.createElement('i')
+        audioBtnBack.classList.add('material-symbols-outlined', 'card__audio')
+        audioBtnBack.textContent='record_voice_over'
+        cardBack.insertAdjacentElement('afterbegin',audioBtnBack)
+        const btns =[audioBtnBack,audioBtnFront]
+        btns.forEach((btn)=>{
+            btn.addEventListener('click',()=>{
+                speak()
+            })
+        })
         flipCardAnimtion()
-    return {card,audioBtn}
+    return {card,audioBtnFront,audioBtnBack}
 
    
    
