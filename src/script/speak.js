@@ -1,4 +1,4 @@
-import { controller } from "./main.js";
+import { controller } from "./index.js";
 const speak = ()=>{
     const synth = window.speechSynthesis;
     const utterThis = new SpeechSynthesisUtterance(controller.currentWordOrigin);
