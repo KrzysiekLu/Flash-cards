@@ -74,16 +74,10 @@ body {
   display: flex;
   gap: 10px;
 }
-.card__front .letter-input {
-  display: inline;
-  max-width: 20px;
+.card__input {
   border: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 1px solid #fff;
   background: none;
-  outline: none;
-  text-align: center;
-  font-size: 18px;
-  color: #fff;
 }
 .card__btn-container {
   width: 100%;

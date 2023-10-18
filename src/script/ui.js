@@ -42,16 +42,9 @@ export const generateCard = (wordOrigin,translate)=>{
     backTranslate.textContent = translate
     cardBack.insertAdjacentElement('beforeend',backTranslate)
     // inputs
-    const inputContainer = document.createElement('div')
-    inputContainer.classList.add('input-container')
-    cardFront.insertAdjacentElement('beforeend',(inputContainer))
-    controler.currentWordTranslate.split('').forEach(()=>{
-        const letterInput = document.createElement('input')       
-        letterInput.classList.add('letter-input')
-        letterInput.setAttribute('maxlength', '1');
-        inputContainer.insertAdjacentElement('beforeend',letterInput)
-    })
-    
+    const input = document.createElement('input')
+    input.classList.add('card__input')
+    cardFront.insertAdjacentElement('beforeend',input)
     flipCardAnimtion()
     return card
 }
