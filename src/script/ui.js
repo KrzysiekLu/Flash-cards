@@ -1,5 +1,5 @@
-import { getNewWord } from "./main.js"
-import { controller } from "./main.js"
+import { getNewWord } from "./index.js"
+import { controller } from "./index.js"
 import speak from "./speak.js"
 export const flipCardAnimtion=()=>{
     const card = document.querySelector('.card')
