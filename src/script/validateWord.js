@@ -7,6 +7,7 @@ const validateWord = (wordTranslate, wordOrigin)=>{
     
     const input = document.querySelector('.card__input')
     const cardBack = document.querySelector('.card__back')
+    
 
     if(input.value == wordTranslate){
         cardBack.insertAdjacentElement('beforeend',goodMark)

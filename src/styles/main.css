@@ -95,6 +95,13 @@ body {
   border: none;
   border-bottom: 1px solid #fff;
   background: none;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.card__input:focus-visible {
+  outline: none;
 }
 .card__btn-container {
   width: 100%;

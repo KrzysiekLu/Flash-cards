@@ -29,12 +29,15 @@ export const getNewWord = () => {
     })
    
 };
-
+// actions for btn check
 const checkBtn = document.querySelector('#cardSubmit')
-checkBtn.addEventListener('click keydown ',
-()=>{validateWord(controller.currentWordTranslate,controller.currentWordOrigin, controller.input)}
-
+checkBtn.addEventListener('click',
+()=>{validateWord(controller.currentWordTranslate,controller.currentWordOrigin)}
 )
+document.addEventListener('keypress',(e)=>{
+  e.key === 'Enter'? validateWord(controller.currentWordTranslate,controller.currentWordOrigin): null;
+
+})
 
 
 getNewWord()
