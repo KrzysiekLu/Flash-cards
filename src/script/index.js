@@ -2,6 +2,7 @@
 import translate from "../../node_modules/translate/index.min.js"
 import * as Ui from "./ui.js"
 import getRandomWord from "./getWord.js"
+import validateWord from "./validateWord.js"
 
 translate.from ="eng"
 const trans  = async(from)=>{
@@ -11,7 +12,8 @@ return trans
 
  export const controller = {
     currentWordOrigin:'',
-    currentWordTranslate:'',    
+    currentWordTranslate:'',  
+    input:''
 }
 
 export const getNewWord = () => {
@@ -22,14 +24,20 @@ export const getNewWord = () => {
       })
       .then((resp) => {
         controller.currentWordTranslate = resp;
-        Ui.generateCard();
+       Ui.generateCard()
+        
     })
    
 };
 
-const init = () =>{
-    getNewWord()
-}
-init()
+const checkBtn = document.querySelector('#cardSubmit')
+checkBtn.addEventListener('click keydown ',
+()=>{validateWord(controller.currentWordTranslate,controller.currentWordOrigin, controller.input)}
+
+)
+
+
+getNewWord()
+
 
 

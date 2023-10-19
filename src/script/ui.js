@@ -1,6 +1,8 @@
 import { getNewWord } from "./index.js"
 import { controller } from "./index.js"
 import speak from "./speak.js"
+
+
 export const flipCardAnimtion=()=>{
     const card = document.querySelector('.card')
     const cardSubmint = document.querySelector('#cardSubmit')
@@ -63,7 +65,7 @@ export const generateCard = ()=>{
             })
         })
         flipCardAnimtion()
-    return {card,audioBtnFront,audioBtnBack}
+    return {card,audioBtnFront,audioBtnBack,input}
 
    
    
